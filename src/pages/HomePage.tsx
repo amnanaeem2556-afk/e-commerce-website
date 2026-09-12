@@ -246,7 +246,11 @@ export const HomePage: React.FC = () => {
         {/* Editorial Bottom Navigation & Progress Indicator */}
         <div className="absolute bottom-6 left-0 right-0 z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border-t border-[#FAF6F0]/20 pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<<<<<<< HEAD
             {/* Slide Pill Tabs without numbering */}
+=======
+            {/* Slide Pill Tabs */}
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
             <div className="flex items-center gap-2 sm:gap-6 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
               {heroSlides.map((slide, idx) => {
                 const isActive = currentSlide === idx;
@@ -261,8 +265,15 @@ export const HomePage: React.FC = () => {
                       isActive ? 'opacity-100' : 'opacity-40 hover:opacity-80'
                     }`}
                   >
+<<<<<<< HEAD
                     <span className={`w-2 h-2 rounded-full transition-colors ${isActive ? 'bg-[#C48A5A]' : 'bg-[#FAF6F0]/40'}`} />
                     <span className="text-[11px] uppercase tracking-wider text-[#FAF6F0] font-medium">
+=======
+                    <span className={`text-[11px] font-serif font-bold ${isActive ? 'text-[#C48A5A]' : 'text-[#FAF6F0]'}`}>
+                      0{idx + 1}
+                    </span>
+                    <span className="text-[11px] uppercase tracking-wider text-[#FAF6F0] font-medium hidden sm:inline">
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                       {slide.tabLabel}
                     </span>
                     {isActive && (
@@ -512,7 +523,11 @@ export const HomePage: React.FC = () => {
               </h2>
 
               <p className="font-serif italic text-base sm:text-lg text-[#E7D6C1] border-l-2 border-[#C48A5A] pl-4">
+<<<<<<< HEAD
                 &ldquo;True luxury does not clamor for attention, it commands it through proportion, weight, and touch.&rdquo;
+=======
+                &ldquo;True luxury does not clamor for attention — it commands it through proportion, weight, and touch.&rdquo;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
               </p>
 
               <p className="text-xs sm:text-sm text-[#E7D6C1]/85 leading-relaxed font-light max-w-lg">

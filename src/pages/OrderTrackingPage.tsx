@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Search, Package, Truck, CheckCircle2, Clock, MapPin, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
@@ -35,10 +36,54 @@ export const OrderTrackingPage: React.FC = () => {
     const cleanIdentifier = identifier.trim();
 
     // 7. Validate all inputs
+=======
+import React, { useState } from 'react';
+import { Search, Package, Truck, CheckCircle2, Clock, MapPin, AlertCircle, Phone, ArrowRight } from 'lucide-react';
+import { useShop } from '../context/ShopContext';
+import { MOCK_PAST_ORDERS, formatPKR } from '../data/constants';
+import { Order } from '../types';
+
+export const OrderTrackingPage: React.FC = () => {
+  const { orders, currentOrder, setCurrentPage } = useShop();
+
+  const allOrders = React.useMemo(() => {
+    const map = new Map<string, Order>();
+    if (Array.isArray(orders)) {
+      orders.forEach((o) => {
+        if (o && o.id) map.set(o.id, o);
+      });
+    }
+    if (Array.isArray(MOCK_PAST_ORDERS)) {
+      MOCK_PAST_ORDERS.forEach((o) => {
+        if (o && o.id && !map.has(o.id)) {
+          map.set(o.id, o);
+        }
+      });
+    }
+    return Array.from(map.values());
+  }, [orders]);
+
+  const defaultOrderId = currentOrder ? currentOrder.id : allOrders[0]?.id || '';
+  const defaultEmail = currentOrder ? currentOrder.email : 'patron@lumora.luxury';
+
+  const [searchOrderId, setSearchOrderId] = useState(defaultOrderId);
+  const [searchEmail, setSearchEmail] = useState(defaultEmail);
+  const [trackedOrder, setTrackedOrder] = useState<Order | null>(currentOrder || allOrders[0] || null);
+  const [error, setError] = useState('');
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+
+    const cleanId = searchOrderId.trim().toUpperCase();
+    const cleanEmail = searchEmail.trim().toLowerCase();
+
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
     if (!cleanId) {
       setError('Please enter your Lumora Order ID (e.g. LUM-948201).');
       return;
     }
+<<<<<<< HEAD
     if (!cleanIdentifier) {
       setError('Please enter your Email or Mobile Number.');
       return;
@@ -148,13 +193,39 @@ export const OrderTrackingPage: React.FC = () => {
         return 2;
       case 'shipped':
       case 'in_transit':
+=======
+
+    const found = allOrders.find(
+      (o) => o.id.toUpperCase() === cleanId || o.id.replace('LUM-', '') === cleanId
+    );
+
+    if (found) {
+      setTrackedOrder(found);
+    } else {
+      setError(`No atelier record matching "${searchOrderId}". Please check your order confirmation slip or SMS notification.`);
+      setTrackedOrder(null);
+    }
+  };
+
+  const getStepIndex = (status: Order['status']) => {
+    switch (status) {
+      case 'confirmed':
+        return 1;
+      case 'processing':
+        return 2;
+      case 'shipped':
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
         return 3;
       case 'out_for_delivery':
         return 4;
       case 'delivered':
         return 5;
       default:
+<<<<<<< HEAD
         return 1;
+=======
+        return 2;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
     }
   };
 
@@ -162,6 +233,7 @@ export const OrderTrackingPage: React.FC = () => {
 
   const trackingSteps = [
     { num: 1, label: 'Order Registered', desc: 'Secure payment captured' },
+<<<<<<< HEAD
     {
       num: 2,
       label: 'Atelier Inspection',
@@ -172,6 +244,10 @@ export const OrderTrackingPage: React.FC = () => {
       label: 'Dispatched via Courier',
       desc: trackedOrder?.status === 'in_transit' ? 'In transit to local hub' : 'En route from Lahore salon',
     },
+=======
+    { num: 2, label: 'Atelier Inspection', desc: 'Hand-pressed & silk-tied' },
+    { num: 3, label: 'Dispatched via Courier', desc: 'En route from Lahore salon' },
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
     { num: 4, label: 'Out for Handover', desc: 'Driver carrying parcel' },
     { num: 5, label: 'Delivered', desc: 'Signature obtained' },
   ];
@@ -215,7 +291,11 @@ export const OrderTrackingPage: React.FC = () => {
               type="text"
               value={searchEmail}
               onChange={(e) => setSearchEmail(e.target.value)}
+<<<<<<< HEAD
               placeholder="e.g. patron@domain.com or 0300 1234567"
+=======
+              placeholder="e.g. patron@domain.com"
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
               className="w-full p-2.5 bg-white border border-[#E7D6C1] text-xs text-[#2B1D17] focus:outline-none focus:border-[#2B1D17]"
             />
           </div>
@@ -223,6 +303,7 @@ export const OrderTrackingPage: React.FC = () => {
           <div className="sm:col-span-2">
             <button
               type="submit"
+<<<<<<< HEAD
               disabled={isLoading}
               className="w-full bg-[#2B1D17] hover:bg-[#6B4A3A] disabled:opacity-60 text-[#FAF6F0] text-xs uppercase tracking-wider font-semibold py-2.5 px-4 transition-colors cursor-pointer flex items-center justify-center gap-2"
             >
@@ -234,17 +315,27 @@ export const OrderTrackingPage: React.FC = () => {
               ) : (
                 'Track'
               )}
+=======
+              className="w-full bg-[#2B1D17] hover:bg-[#6B4A3A] text-[#FAF6F0] text-xs uppercase tracking-wider font-semibold py-2.5 px-4 transition-colors cursor-pointer"
+            >
+              Track
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
             </button>
           </div>
         </form>
 
         {error && (
           <p className="text-xs text-red-600 font-medium mt-3 flex items-center gap-1.5">
+<<<<<<< HEAD
             <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+=======
+            <AlertCircle className="w-3.5 h-3.5" />
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
             <span>{error}</span>
           </p>
         )}
 
+<<<<<<< HEAD
         {/* Quick Sample Order IDs (Live from Database) */}
         {recentOrders.length > 0 && (
           <div className="mt-4 pt-4 border-t border-[#E7D6C1]/60 flex flex-wrap items-center gap-2 text-[11px] text-[#6B4A3A]">
@@ -266,6 +357,26 @@ export const OrderTrackingPage: React.FC = () => {
             ))}
           </div>
         )}
+=======
+        {/* Quick Sample Order IDs */}
+        <div className="mt-4 pt-4 border-t border-[#E7D6C1]/60 flex flex-wrap items-center gap-2 text-[11px] text-[#6B4A3A]">
+          <span>Recent orders:</span>
+          {allOrders.map((o) => (
+            <button
+              key={o.id}
+              onClick={() => {
+                setSearchOrderId(o.id);
+                setSearchEmail(o.email);
+                setTrackedOrder(o);
+                setError('');
+              }}
+              className="underline hover:text-[#2B1D17] cursor-pointer"
+            >
+              {o.id}
+            </button>
+          ))}
+        </div>
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
       </div>
 
       {/* TRACKING DETAILS CARD */}
@@ -279,6 +390,7 @@ export const OrderTrackingPage: React.FC = () => {
                   Shipment #{trackedOrder.id}
                 </span>
                 <h2 className="font-serif text-2xl text-[#2B1D17] font-semibold mt-0.5">
+<<<<<<< HEAD
                   Package Status:{' '}
                   <span className="capitalize text-[#6B4A3A]">
                     {trackedOrder.status.replace(/_/g, ' ')}
@@ -290,6 +402,12 @@ export const OrderTrackingPage: React.FC = () => {
                 </p>
                 <p className="text-[11px] text-[#6B4A3A] mt-0.5">
                   Contact: {trackedOrder.email} &bull; {trackedOrder.phone}
+=======
+                  Package Status: <span className="capitalize text-[#6B4A3A]">{trackedOrder.status.replace(/_/g, ' ')}</span>
+                </h2>
+                <p className="text-xs text-[#6B4A3A] mt-1">
+                  Recipient: <strong>{trackedOrder.customerName}</strong> &bull; {trackedOrder.shippingAddress}
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                 </p>
               </div>
 
@@ -300,9 +418,12 @@ export const OrderTrackingPage: React.FC = () => {
                 <span className="font-serif text-base font-bold text-[#2B1D17]">
                   {trackedOrder.estimatedDelivery}
                 </span>
+<<<<<<< HEAD
                 <span className="text-[10px] text-[#6B4A3A] block mt-1">
                   Updated: {new Date(trackedOrder.updatedAt || trackedOrder.createdAt || Date.now()).toLocaleDateString('en-PK', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </span>
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
               </div>
             </div>
 
@@ -350,22 +471,35 @@ export const OrderTrackingPage: React.FC = () => {
                 <span className="text-[10px] uppercase tracking-wider text-[#6B4A3A] block mb-0.5">
                   Courier Partner
                 </span>
+<<<<<<< HEAD
                 <p className="font-semibold text-[#2B1D17]">{trackedOrder.courierName || 'TCS White-Glove VIP Express'}</p>
                 <p className="text-[#6B4A3A] text-[11px]">
                   Tracking Number: #{trackedOrder.trackingNumber || `AWB-${trackedOrder.id.replace('LUM-', '')}-PK`}
                 </p>
+=======
+                <p className="font-semibold text-[#2B1D17]">TCS White-Glove VIP Express</p>
+                <p className="text-[#6B4A3A] text-[11px]">Airway Bill: #AWB-9847192-PK</p>
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
               </div>
 
               <div className="p-3 bg-white/60 border border-[#E7D6C1]">
                 <span className="text-[10px] uppercase tracking-wider text-[#6B4A3A] block mb-0.5">
+<<<<<<< HEAD
                   Payment Status
                 </span>
                 <p className="font-semibold text-[#2B1D17] capitalize">{trackedOrder.paymentStatus || 'Completed'}</p>
                 <p className="text-[#6B4A3A] text-[11px] truncate">{trackedOrder.paymentMethod}</p>
+=======
+                  Assigned Chauffeur
+                </span>
+                <p className="font-semibold text-[#2B1D17]">Tariq Mehmood (Badge #041)</p>
+                <p className="text-[#6B4A3A] text-[11px]">Contact: +92 (300) 412-9090</p>
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
               </div>
 
               <div className="p-3 bg-white/60 border border-[#E7D6C1]">
                 <span className="text-[10px] uppercase tracking-wider text-[#6B4A3A] block mb-0.5">
+<<<<<<< HEAD
                   Packaging & Telemetry
                 </span>
                 <p className="font-semibold text-[#2B1D17]">Archival Gift Boxed & Sealed</p>
@@ -415,6 +549,12 @@ export const OrderTrackingPage: React.FC = () => {
                     {trackedOrder.status === st.key ? `✓ ${st.label}` : st.label}
                   </button>
                 ))}
+=======
+                  Packaging Verification
+                </span>
+                <p className="font-semibold text-[#2B1D17]">Archival Gift Boxed & Sealed</p>
+                <p className="text-[#6B4A3A] text-[11px]">Temper-evident wax stamped</p>
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
               </div>
             </div>
           </div>
@@ -426,8 +566,13 @@ export const OrderTrackingPage: React.FC = () => {
             </h3>
 
             <div className="space-y-3 divide-y divide-[#E7D6C1]/60">
+<<<<<<< HEAD
               {trackedOrder.items.map((item, idx) => (
                 <div key={item.id || idx} className="pt-3 first:pt-0 flex items-center justify-between text-xs">
+=======
+              {trackedOrder.items.map((item) => (
+                <div key={item.id} className="pt-3 first:pt-0 flex items-center justify-between text-xs">
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                   <div className="flex items-center gap-3">
                     <img
                       src={item.product?.images?.[0] || ''}
@@ -437,17 +582,28 @@ export const OrderTrackingPage: React.FC = () => {
                     />
                     <div>
                       <h4 className="font-serif text-sm font-semibold text-[#2B1D17]">
+<<<<<<< HEAD
                         {item.product?.name || 'Lumora Creation'}
                       </h4>
                       <p className="text-[#6B4A3A]">
                         {item.selectedColor} &bull; Size {item.selectedSize?.toUpperCase()}
+=======
+                        {item.product.name}
+                      </h4>
+                      <p className="text-[#6B4A3A]">
+                        {item.selectedColor} &bull; Size {item.selectedSize.toUpperCase()}
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                       </p>
                       <p className="text-[#6B4A3A]">Qty: {item.quantity}</p>
                     </div>
                   </div>
 
                   <span className="font-serif text-sm font-semibold text-[#2B1D17]">
+<<<<<<< HEAD
                     {formatPKR((item.product?.price || item.price || 0) * item.quantity)}
+=======
+                    {formatPKR(item.product.price * item.quantity)}
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                   </span>
                 </div>
               ))}

@@ -118,17 +118,26 @@ export interface Order {
   id: string;
   orderNumber?: string;
   trackingNumber?: string;
+<<<<<<< HEAD
   courierName?: string;
   paymentStatus?: string;
   city?: string;
   postalCode?: string;
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   customerName: string;
   email: string;
   phone: string;
   shippingAddress: string;
+<<<<<<< HEAD
   orderDate?: string;
   estimatedDelivery: string;
   status: 'placed' | 'confirmed' | 'processing' | 'packed' | 'shipped' | 'in_transit' | 'out_for_delivery' | 'delivered';
+=======
+  orderDate: string;
+  estimatedDelivery: string;
+  status: 'placed' | 'confirmed' | 'processing' | 'shipped' | 'out_for_delivery' | 'delivered';
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   paymentMethod: string;
   subtotal: number;
   discount: number;
@@ -141,19 +150,27 @@ export interface Order {
   shippingFee?: number;
   discountAmount?: number;
   promoCode?: string;
+<<<<<<< HEAD
   emailSent?: boolean;
   emailError?: string;
   emailProvider?: string;
   emailMessageId?: string;
   createdAt?: string;
   updatedAt?: string;
+=======
+  createdAt?: string;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   statusTimestamps?: {
     placed: string;
     confirmed?: string;
     processing?: string;
+<<<<<<< HEAD
     packed?: string;
     shipped?: string;
     in_transit?: string;
+=======
+    shipped?: string;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
     out_for_delivery?: string;
     delivered?: string;
   };
@@ -175,7 +192,10 @@ export type PageType =
   | 'checkout'
   | 'order_success'
   | 'order_tracking'
+<<<<<<< HEAD
   | 'admin'
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   | 'reviews'
   | 'help_support'
   | 'about';

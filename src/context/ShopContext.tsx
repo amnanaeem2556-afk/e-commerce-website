@@ -60,11 +60,17 @@ interface ShopContextType {
   latestOrder: Order | null;
   currentOrder: Order | null;
   setLatestOrder: (order: Order | null) => void;
+<<<<<<< HEAD
   createOrder: (newOrder: Order) => Promise<Order>;
   placeOrder: (newOrder: Order) => Promise<Order>;
   findOrder: (orderNumber: string, email?: string) => Order | undefined;
   updateOrderStatus: (orderId: string, status: string, courierName?: string, trackingNumber?: string, paymentStatus?: string) => Promise<{ success: boolean; order?: Order; error?: string }>;
   refreshOrders: () => Promise<void>;
+=======
+  createOrder: (newOrder: Order) => void;
+  placeOrder: (newOrder: Order) => void;
+  findOrder: (orderNumber: string, email?: string) => Order | undefined;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 
   // Toast
   toasts: ToastMessage[];
@@ -196,6 +202,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [latestOrder, setLatestOrder] = useState<Order | null>(orders[0] || null);
 
+<<<<<<< HEAD
   const refreshOrders = async () => {
     try {
       const res = await fetch('/api/admin/orders');
@@ -231,6 +238,8 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   useEffect(() => {
     try {
       localStorage.setItem('lumora_cart', JSON.stringify(cart));
@@ -370,6 +379,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     addToast('Promo Removed', 'Privilege voucher code was removed.', 'info');
   };
 
+<<<<<<< HEAD
   const createOrder = async (newOrder: Order): Promise<Order> => {
     setOrders(prev => [newOrder, ...prev.filter(o => o.id !== newOrder.id)]);
     setLatestOrder(newOrder);
@@ -448,6 +458,16 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error('Error in updateOrderStatus:', err);
       return { success: false, error: err.message || 'Network error updating order status.' };
     }
+=======
+  const createOrder = (newOrder: Order) => {
+    setOrders(prev => [newOrder, ...prev]);
+    setLatestOrder(newOrder);
+    clearCart();
+  };
+
+  const placeOrder = (newOrder: Order) => {
+    createOrder(newOrder);
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   };
 
   const findOrder = (orderNumber: string, email?: string): Order | undefined => {
@@ -512,8 +532,11 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
         createOrder,
         placeOrder,
         findOrder,
+<<<<<<< HEAD
         updateOrderStatus,
         refreshOrders,
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
         toasts,
         addToast,
         removeToast

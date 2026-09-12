@@ -54,6 +54,7 @@ async function main() {
   });
 
   console.log('Admin user seeded.');
+<<<<<<< HEAD
 
   // Seed live orders
   const sampleOrders = [
@@ -297,6 +298,8 @@ async function main() {
       console.log(`Seeded order ${created.orderNumber}`);
     }
   }
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 }
 
 main()

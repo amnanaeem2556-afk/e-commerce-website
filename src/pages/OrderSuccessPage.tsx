@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 import {
   CheckCircle2,
   Package,
@@ -9,6 +13,7 @@ import {
   MapPin,
   Calendar,
   CreditCard,
+<<<<<<< HEAD
   Printer,
   AlertTriangle,
   RefreshCw,
@@ -16,10 +21,14 @@ import {
   ExternalLink,
   ShieldCheck,
   Info
+=======
+  Printer
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { formatPKR } from '../data/constants';
 
+<<<<<<< HEAD
 interface EmailAuditStatus {
   configured: boolean;
   provider: 'resend' | 'brevo' | 'sendgrid' | 'smtp' | 'none';
@@ -107,6 +116,11 @@ export const OrderSuccessPage: React.FC = () => {
         setEmailError('Could not verify email service connectivity.');
       });
   }, [currentOrder?.id, currentOrder?.emailSent]);
+=======
+export const OrderSuccessPage: React.FC = () => {
+  const { currentOrder, setCurrentPage } = useShop();
+  const [emailNotificationSent, setEmailNotificationSent] = useState(true);
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 
   if (!currentOrder) {
     return (
@@ -115,7 +129,11 @@ export const OrderSuccessPage: React.FC = () => {
         <p className="text-xs text-[#6B4A3A]">Please explore our collection to place a bespoke order.</p>
         <button
           onClick={() => setCurrentPage('shop')}
+<<<<<<< HEAD
           className="bg-[#2B1D17] text-[#FAF6F0] px-6 py-3 text-xs uppercase tracking-widest font-semibold cursor-pointer"
+=======
+          className="bg-[#2B1D17] text-[#FAF6F0] px-6 py-3 text-xs uppercase tracking-widest font-semibold"
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
         >
           Return to Catalogue
         </button>
@@ -129,6 +147,7 @@ export const OrderSuccessPage: React.FC = () => {
     window.print();
   };
 
+<<<<<<< HEAD
   // Re-trigger confirmation email for this order
   const handleRetryEmail = async () => {
     setIsRetrying(true);
@@ -207,6 +226,8 @@ export const OrderSuccessPage: React.FC = () => {
     }
   };
 
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
       {/* Success Hero Card */}
@@ -227,6 +248,7 @@ export const OrderSuccessPage: React.FC = () => {
           Your bespoke curation has been registered at our Lahore Salon. Our master tailors are conducting the pre-dispatch hand inspection.
         </p>
 
+<<<<<<< HEAD
         {/* EMAIL STATUS ACCURACY SECTION */}
         {emailStatus === 'checking' && (
           <div className="inline-flex items-center gap-2 bg-[#E7D6C1]/20 border border-[#E7D6C1] px-4 py-2 text-xs text-[#6B4A3A] mt-2">
@@ -416,6 +438,15 @@ export const OrderSuccessPage: React.FC = () => {
             </div>
           )}
         </div>
+=======
+        {/* Email confirmation simulation notice */}
+        {emailNotificationSent && (
+          <div className="inline-flex items-center gap-2 bg-[#E7D6C1]/30 border border-[#C48A5A]/50 px-4 py-2 text-xs text-[#2B1D17] mt-2">
+            <Mail className="w-3.5 h-3.5 text-[#C48A5A]" />
+            <span>Confirmation receipt and tracking credentials dispatched to <strong>{order.email}</strong></span>
+          </div>
+        )}
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
       </div>
 
       {/* Real-time Order Tracking Timeline */}

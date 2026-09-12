@@ -19,7 +19,10 @@ import { WishlistPage } from './pages/WishlistPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { OrderSuccessPage } from './pages/OrderSuccessPage';
 import { OrderTrackingPage } from './pages/OrderTrackingPage';
+<<<<<<< HEAD
 import { AdminOrdersPage } from './pages/AdminOrdersPage';
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 import { ReviewsPage } from './pages/ReviewsPage';
 import { AboutPage } from './pages/AboutPage';
 import { HelpSupportPage } from './pages/HelpSupportPage';
@@ -128,9 +131,12 @@ const AppContent: React.FC = () => {
       case 'order_tracking':
         return <OrderTrackingPage />;
 
+<<<<<<< HEAD
       case 'admin':
         return <AdminOrdersPage />;
 
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
       case 'reviews':
         return <ReviewsPage />;
 

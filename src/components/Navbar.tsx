@@ -254,6 +254,7 @@ export const Navbar: React.FC = () => {
                         <span>Customer Support & FAQ</span>
                         <ArrowRight className="w-3 h-3 text-[#C48A5A]" />
                       </button>
+<<<<<<< HEAD
                       <button
                         onClick={() => {
                           setIsAccountModalOpen(false);
@@ -264,6 +265,8 @@ export const Navbar: React.FC = () => {
                         <span>Atelier Admin Dashboard</span>
                         <ArrowRight className="w-3 h-3 text-[#C48A5A]" />
                       </button>
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                     </div>
                     <div className="pt-2 border-t border-[#E7D6C1]/60">
                       <p className="text-[10px] text-[#6B4A3A]">
@@ -340,31 +343,51 @@ export const Navbar: React.FC = () => {
                   onClick={() => handleNavClick('women', 'women')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Women Collection
+=======
+                  &mdash; Women Collection
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                 </button>
                 <button
                   onClick={() => handleNavClick('men', 'men')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Men Collection
+=======
+                  &mdash; Men Collection
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                 </button>
                 <button
                   onClick={() => handleNavClick('watches', 'watches')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Watches & Horology
+=======
+                  &mdash; Watches & Horology
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                 </button>
                 <button
                   onClick={() => handleNavClick('shoes', 'shoes')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Shoes & Loafers
+=======
+                  &mdash; Shoes & Loafers
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                 </button>
                 <button
                   onClick={() => handleNavClick('accessories', 'accessories')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Bags & Accessories
+=======
+                  &mdash; Bags & Accessories
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
                 </button>
                 <button
                   onClick={() => handleNavClick('new_arrivals')}

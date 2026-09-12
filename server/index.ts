@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { PrismaClient } from '@prisma/client';
+<<<<<<< HEAD
 import { PRODUCTS } from '../src/data/products.ts';
 import { sendOrderConfirmationEmail, getEmailProviderStatus, EmailOrderDetails } from './email.ts';
 
@@ -32,30 +33,50 @@ app.set('trust proxy', 1);
 app.use(helmet({ contentSecurityPolicy: false, frameguard: false }));
 app.use(cors({
   origin: true,
+=======
+const prisma = new PrismaClient();
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Security Middlewares
+app.use(helmet());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   credentials: true
 }));
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
+<<<<<<< HEAD
   max: 1000, // Limit each IP to 1000 requests per window
   standardHeaders: true,
   legacyHeaders: false,
   validate: { xForwardedForHeader: false }
+=======
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true,
+  legacyHeaders: false,
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 });
 app.use('/api', limiter);
 
 app.use(express.json());
 
+<<<<<<< HEAD
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 // Routes
 // 1. Products API
 app.get('/api/products', async (req, res) => {
   try {
     const products = await prisma.product.findMany();
+<<<<<<< HEAD
     if (products && products.length > 0) {
       // Parse JSON strings back to objects
       const formattedProducts = products.map((p: any) => ({
@@ -72,11 +93,27 @@ app.get('/api/products', async (req, res) => {
   }
   // Fallback to static catalog
   res.json(PRODUCTS);
+=======
+    // Parse JSON strings back to objects
+    const formattedProducts = products.map((p: any) => ({
+      ...p,
+      images: JSON.parse(p.images),
+      colors: JSON.parse(p.colors),
+      sizes: JSON.parse(p.sizes),
+      details: JSON.parse(p.details),
+    }));
+    res.json(formattedProducts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch products' });
+  }
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 });
 
 app.get('/api/products/:id', async (req, res) => {
   try {
     const product: any = await prisma.product.findUnique({ where: { id: req.params.id } });
+<<<<<<< HEAD
     if (product) {
       const formattedProduct = {
         ...product,
@@ -197,6 +234,32 @@ app.post('/api/orders', async (req, res) => {
     const trackingNumber = `AWB-${orderNumber.replace('LUM-', '')}-PK`;
     const courierName = 'TCS White-Glove VIP Express';
     const paymentStatus = paymentMethod === 'cod' ? 'Pending (COD Handover)' : 'Completed';
+=======
+    if (!product) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+    const formattedProduct = {
+      ...product,
+      images: JSON.parse(product.images),
+      colors: JSON.parse(product.colors),
+      sizes: JSON.parse(product.sizes),
+      details: JSON.parse(product.details),
+    };
+    res.json(formattedProduct);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch product' });
+  }
+});
+
+// 2. Orders API
+app.post('/api/orders', async (req, res) => {
+  try {
+    const { customerName, email, phone, shippingAddress, city, postalCode, paymentMethod, subtotal, discount, shippingFee, total, estimatedDelivery, items } = req.body;
+
+    // Generate Order ID (LUM-XXXXXX)
+    const orderNumber = `LUM-${Math.floor(100000 + Math.random() * 900000)}`;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 
     const order = await prisma.$transaction(async (tx) => {
       // Create the order
@@ -207,6 +270,7 @@ app.post('/api/orders', async (req, res) => {
           email,
           phone,
           shippingAddress,
+<<<<<<< HEAD
           city: city || 'Lahore',
           postalCode: postalCode || '54000',
           paymentMethod,
@@ -250,6 +314,40 @@ app.post('/api/orders', async (req, res) => {
             // Non-fatal if product ID was custom or static
           }
         }
+=======
+          city,
+          postalCode,
+          paymentMethod,
+          subtotal,
+          discount,
+          shippingFee,
+          total,
+          estimatedDelivery,
+          status: 'pending',
+          items: {
+            create: items.map((item: any) => ({
+              productId: item.productId,
+              selectedColor: item.selectedColor,
+              selectedSize: item.selectedSize,
+              quantity: item.quantity,
+              price: item.price
+            }))
+          }
+        },
+        include: { items: true }
+      });
+
+      // Reduce inventory
+      for (const item of items) {
+        await tx.product.update({
+          where: { id: item.productId },
+          data: {
+            stockCount: {
+              decrement: item.quantity
+            }
+          }
+        });
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
       }
 
       // Create Payment Record
@@ -258,14 +356,19 @@ app.post('/api/orders', async (req, res) => {
           orderId: newOrder.id,
           gateway: paymentMethod,
           amount: total,
+<<<<<<< HEAD
           status: paymentMethod === 'cod' ? 'pending' : 'completed',
           transactionId: `TXN-${orderNumber.replace('LUM-', '')}`
+=======
+          status: paymentMethod === 'cod' ? 'pending' : 'pending' // Initial status
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
         }
       });
 
       return newOrder;
     });
 
+<<<<<<< HEAD
     const formattedOrder = formatOrder(order);
 
     // Ensure the backend actually attempts to send real email confirmation
@@ -288,10 +391,16 @@ app.post('/api/orders', async (req, res) => {
     res.status(201).json(responseOrder);
   } catch (error) {
     console.error('Failed to create order:', error);
+=======
+    res.status(201).json(order);
+  } catch (error) {
+    console.error(error);
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
     res.status(500).json({ error: 'Failed to create order. Please try again.' });
   }
 });
 
+<<<<<<< HEAD
 // Email Service Audit & Diagnostics API
 app.get('/api/email/status', (req, res) => {
   const status = getEmailProviderStatus();
@@ -354,10 +463,17 @@ app.post('/api/orders/:id/resend-email', async (req, res) => {
     const rawId = req.params.id;
     const cleanId = rawId.toUpperCase();
     const cleanIdWithPrefix = cleanId.startsWith('LUM-') ? cleanId : `LUM-${cleanId}`;
+=======
+app.get('/api/orders/track/:orderId', async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const cleanId = orderId.toUpperCase();
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 
     const order = await prisma.order.findFirst({
       where: {
         OR: [
+<<<<<<< HEAD
           { id: rawId },
           { orderNumber: rawId },
           { orderNumber: cleanId },
@@ -417,6 +533,10 @@ const trackOrderHandler = async (req: express.Request, res: express.Response) =>
           { orderNumber: cleanIdWithoutPrefix },
           { id: cleanId },
           { trackingNumber: cleanId }
+=======
+          { id: cleanId },
+          { orderNumber: cleanId }
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
         ]
       },
       include: {
@@ -429,6 +549,7 @@ const trackOrderHandler = async (req: express.Request, res: express.Response) =>
       }
     });
 
+<<<<<<< HEAD
     // 4. If the order does not exist: Show "Order not found."
     if (!order) {
       return res.status(404).json({ error: 'Order not found.' });
@@ -561,6 +682,34 @@ app.put('/api/admin/orders/:id/status', async (req, res) => {
   app._router.handle(req, res);
 });
 
+=======
+    if (!order) {
+      return res.status(404).json({ error: 'No atelier record matching this ID.' });
+    }
+
+    // Format products
+    const formattedOrder = {
+      ...order,
+      items: order.items.map((item: any) => ({
+        ...item,
+        product: {
+          ...item.product,
+          images: JSON.parse(item.product.images),
+          colors: JSON.parse(item.product.colors),
+          sizes: JSON.parse(item.product.sizes),
+          details: JSON.parse(item.product.details),
+        }
+      }))
+    };
+
+    res.json(formattedOrder);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to track order' });
+  }
+});
+
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
 // Mock Payment Callbacks
 app.post('/api/payments/easypaisa/callback', async (req, res) => {
   // Mock EasyPaisa Callback
@@ -583,6 +732,7 @@ app.post('/api/payments/easypaisa/callback', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 export { app };
 
 if (process.argv[1]?.includes('server') && !process.env.VITE) {
@@ -591,3 +741,8 @@ if (process.argv[1]?.includes('server') && !process.env.VITE) {
     console.log(`Lumora API Server running on port ${PORT}`);
   });
 }
+=======
+app.listen(PORT, () => {
+  console.log(`Lumora API Server running on port ${PORT}`);
+});
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596

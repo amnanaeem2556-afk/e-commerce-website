@@ -125,12 +125,20 @@ export const CheckoutPage: React.FC = () => {
     }
   };
 
+<<<<<<< HEAD
   const handlePlaceOrder = async () => {
+=======
+  const handlePlaceOrder = () => {
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
     if (!validateStep3()) return;
 
     setIsProcessing(true);
 
+<<<<<<< HEAD
     try {
+=======
+    setTimeout(() => {
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
       const newOrder: Order = {
         id: `LUM-${Math.floor(100000 + Math.random() * 900000)}`,
         items: [...cart],
@@ -166,6 +174,7 @@ export const CheckoutPage: React.FC = () => {
             : '2-3 Business Days',
       };
 
+<<<<<<< HEAD
       await placeOrder(newOrder);
       setCurrentPage('order_success');
     } catch (err) {
@@ -173,6 +182,12 @@ export const CheckoutPage: React.FC = () => {
     } finally {
       setIsProcessing(false);
     }
+=======
+      placeOrder(newOrder);
+      setIsProcessing(false);
+      setCurrentPage('order_success');
+    }, 1800);
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
   };
 
   if (cart.length === 0) {
