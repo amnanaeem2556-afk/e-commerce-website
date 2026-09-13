@@ -59,17 +59,35 @@ model Order {
   shippingAddress   String
   city              String
   postalCode        String?
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   status            String      @default("confirmed") // confirmed, processing, packed, shipped, in_transit, out_for_delivery, delivered
   paymentMethod     String      // easypaisa, jazzcash, bank_transfer, cod, card
   paymentStatus     String      @default("Completed")
   courierName       String      @default("TCS White-Glove VIP Express")
   trackingNumber    String?
+<<<<<<< HEAD
+=======
+=======
+  status            String      @default("pending") // pending, confirmed, processing, shipped, out_for_delivery, delivered, cancelled, returned
+  paymentMethod     String      // easypaisa, jazzcash, bank_transfer, cod, card
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   subtotal          Float
   discount          Float       @default(0)
   shippingFee       Float       @default(0)
   total             Float
   estimatedDelivery String
+<<<<<<< HEAD
   itemsData         String?
+=======
+<<<<<<< HEAD
+  itemsData         String?
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   createdAt         DateTime    @default(now())
   updatedAt         DateTime    @updatedAt
 

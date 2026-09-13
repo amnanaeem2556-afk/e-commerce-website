@@ -20,8 +20,16 @@ import { INITIAL_REVIEWS } from '../data/reviews';
 import { ProductCard } from '../components/ProductCard';
 import { FilterState, Product, PageType } from '../types';
 import { formatPKR } from '../data/constants';
+<<<<<<< HEAD
 import { getCollectionHero } from '../data/collectionHeroes';
 import { CollectionHeroBanner } from '../components/CollectionHeroBanner';
+=======
+<<<<<<< HEAD
+import { getCollectionHero } from '../data/collectionHeroes';
+import { CollectionHeroBanner } from '../components/CollectionHeroBanner';
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
 interface ShopPageProps {
   initialCategory?: string | null;
@@ -288,6 +296,10 @@ export const ShopPage: React.FC<ShopPageProps> = ({
       ? categoryMeta.subtitle
       : 'Explore the full spectrum of haute couture tailoring, high horology, handcrafted footwear, and Tuscan leather objets.');
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   // Breadcrumb current label
   const breadcrumbCurrent = useMemo(() => {
     if (filters.discountOnly || filterOnlySale) return 'Sale';
@@ -339,6 +351,11 @@ export const ShopPage: React.FC<ShopPageProps> = ({
     }
   };
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   // Category Tab Links for quick switching
   const allCategoryTabs = [
     { id: null, label: 'All Catalog', count: PRODUCTS.length },
@@ -635,6 +652,10 @@ export const ShopPage: React.FC<ShopPageProps> = ({
   );
 
   return (
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
     <div className="w-full">
       {/* Category Navigation Breadcrumb & Back to All */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-3">
@@ -694,6 +715,102 @@ export const ShopPage: React.FC<ShopPageProps> = ({
           <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none border-b border-[#E7D6C1]/60">
             <span className="text-[11px] uppercase tracking-widest text-[#6B4A3A] font-semibold shrink-0 mr-1">
               Sub-Collection:
+<<<<<<< HEAD
+=======
+=======
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      {/* Category Navigation Breadcrumb & Back to All */}
+      <div className="flex items-center justify-between text-xs text-[#6B4A3A] mb-6">
+        <div className="flex items-center gap-2 uppercase tracking-widest text-[11px]">
+          <button
+            onClick={() => setCurrentPage('home')}
+            className="hover:text-[#2B1D17] cursor-pointer"
+          >
+            Home
+          </button>
+          <span>/</span>
+          <button
+            onClick={() => handleCategorySwitch(null)}
+            className={`cursor-pointer ${
+              !activeCategory ? 'text-[#2B1D17] font-semibold' : 'hover:text-[#2B1D17]'
+            }`}
+          >
+            Shop
+          </button>
+          {activeCategory && categoryMeta && (
+            <>
+              <span>/</span>
+              <span className="text-[#2B1D17] font-semibold">{categoryMeta.name}</span>
+            </>
+          )}
+        </div>
+
+        {activeCategory ? (
+          <button
+            onClick={() => handleCategorySwitch(null)}
+            className="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider text-[#C48A5A] hover:text-[#2B1D17] font-medium transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Return to All Catalog</span>
+          </button>
+        ) : (
+          <span className="text-[11px] uppercase tracking-wider text-[#6B4A3A]">
+            Showing all salons ({PRODUCTS.length} creations)
+          </span>
+        )}
+      </div>
+
+      {/* Editorial Header Banner */}
+      <div className="border border-[#E7D6C1] bg-[#FAF6F0] p-6 sm:p-10 mb-8 relative overflow-hidden">
+        <div className="absolute -right-12 -bottom-12 opacity-5 pointer-events-none">
+          <span className="font-serif text-[180px] leading-none font-bold text-[#2B1D17]">
+            {categoryMeta ? categoryMeta.name[0] : 'L'}
+          </span>
+        </div>
+
+        <div className="relative z-10 max-w-3xl">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#C48A5A] font-semibold">
+              {categoryMeta ? categoryMeta.featuredTag : 'The Lumora Atelier'}
+            </span>
+            <span className="w-6 h-[1px] bg-[#C48A5A]" />
+            <span className="text-[10px] uppercase tracking-widest text-[#6B4A3A]">
+              Exclusive Release
+            </span>
+          </div>
+
+          <h1 className="font-serif text-3xl sm:text-5xl text-[#2B1D17] font-normal tracking-tight">
+            {dynamicTitle}
+          </h1>
+
+          <p className="text-xs sm:text-sm text-[#6B4A3A] mt-3 leading-relaxed font-light">
+            {dynamicSubtitle}
+          </p>
+
+          {/* Provenance & Standard Badges */}
+          {categoryMeta && (
+            <div className="flex flex-wrap items-center gap-4 mt-5 pt-4 border-t border-[#E7D6C1]/60 text-xs text-[#2B1D17]">
+              <div className="inline-flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#C48A5A]" />
+                <span className="text-[#6B4A3A]">Materials:</span>
+                <strong className="font-medium">{categoryMeta.materialHighlight}</strong>
+              </div>
+              <div className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#C48A5A]" />
+                <span className="text-[#6B4A3A]">Standard:</span>
+                <strong className="font-medium">{categoryMeta.sizeStandard}</strong>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Quick Subcategory Filter Pills (Category Specific) */}
+        {availableSubcategories.length > 0 && (
+          <div className="mt-8 pt-6 border-t border-[#E7D6C1] flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <span className="text-[11px] uppercase tracking-widest text-[#6B4A3A] font-semibold shrink-0 mr-1">
+              Filter By:
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </span>
             <button
               onClick={() => setFilters((prev) => ({ ...prev, subCategory: '' }))}
@@ -724,6 +841,13 @@ export const ShopPage: React.FC<ShopPageProps> = ({
             })}
           </div>
         )}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+      </div>
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
       {/* Filter & Sort Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-[#E7D6C1]">
@@ -836,8 +960,13 @@ export const ShopPage: React.FC<ShopPageProps> = ({
             </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+<<<<<<< HEAD
               {filteredProducts.map((product, idx) => (
                 <ProductCard key={product.id} product={product} priority={idx < 8} />
+=======
+              {filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               ))}
             </div>
           )}
@@ -915,7 +1044,14 @@ export const ShopPage: React.FC<ShopPageProps> = ({
           </div>
         </section>
       )}
+<<<<<<< HEAD
       </div>
+=======
+<<<<<<< HEAD
+      </div>
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
       {/* Mobile Drawer / Modal */}
       {isMobileFiltersOpen && (

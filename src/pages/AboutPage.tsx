@@ -11,12 +11,18 @@ export const AboutPage: React.FC = () => {
       <section className="relative h-[65vh] min-h-[460px] max-h-[620px] bg-[#2B1D17] text-[#FAF6F0] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
+<<<<<<< HEAD
             src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85"
             alt="Lumora Atelier"
             loading="eager"
             decoding="async"
             fetchPriority="high"
             className="w-full h-full object-cover opacity-35 animate-hero-zoom"
+=======
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2000&q=85"
+            alt="Lumora Atelier"
+            className="w-full h-full object-cover opacity-35"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17] via-transparent to-[#2B1D17]/70" />
         </div>
@@ -26,7 +32,11 @@ export const AboutPage: React.FC = () => {
             The Maison & Heritage
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-[#FAF6F0]">
+<<<<<<< HEAD
             The Architecture of <span className="italic font-light text-[#C48A5A]">Quiet Luxury</span>
+=======
+            The Architecture of Quiet Luxury
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           </h1>
           <p className="text-xs sm:text-sm text-[#E7D6C1]/85 font-light leading-relaxed max-w-xl mx-auto">
             Lumora was founded in Lahore to challenge the fleeting ephemerality of fast-fashion. We build timeless silhouettes engineered from natural fibers of peerless lineage.
@@ -42,7 +52,11 @@ export const AboutPage: React.FC = () => {
               Origin & Lineage
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal leading-snug">
+<<<<<<< HEAD
               Modern Heirlooms for <span className="italic font-light text-[#C48A5A]">Discerning</span> Individuals
+=======
+              Modern Heirlooms for Discerning Individuals
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
             <p className="text-xs sm:text-sm text-[#2B1D17]/80 font-light leading-relaxed">
               In a world crowded with loud logos and seasonal turnover, Lumora stands for restraint. We believe that true luxury does not shout; it is whispered through the clean angle of an unlined lapel, the tactile density of pure Mongolian cashmere, and the deliberate weight of Swiss-automatic watch handiwork.
@@ -52,12 +66,20 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
 
+<<<<<<< HEAD
           <div className="aspect-[4/5] overflow-hidden border border-[#E7D6C1] relative group">
+=======
+          <div className="aspect-[4/5] overflow-hidden border border-[#E7D6C1] relative">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             <img
               src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=85"
               alt="Atelier Cutting Table"
               referrerPolicy="no-referrer"
+<<<<<<< HEAD
               className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+=======
+              className="w-full h-full object-cover"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             />
           </div>
         </div>
@@ -71,7 +93,11 @@ export const AboutPage: React.FC = () => {
               The Materials
             </span>
             <h2 className="font-serif text-3xl text-[#2B1D17] mt-1 font-normal">
+<<<<<<< HEAD
               Uncompromising Material <span className="italic font-light text-[#C48A5A]">Integrity</span>
+=======
+              Uncompromising Material Integrity
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
           </div>
 
@@ -116,7 +142,11 @@ export const AboutPage: React.FC = () => {
             Human Hands
           </span>
           <h2 className="font-serif text-3xl text-[#2B1D17] mt-1 font-normal">
+<<<<<<< HEAD
             The Creative <span className="italic font-light text-[#C48A5A]">Directorate</span>
+=======
+            The Creative Directorate
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           </h2>
         </div>
 
@@ -141,13 +171,21 @@ export const AboutPage: React.FC = () => {
               img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=85',
             },
           ].map((member) => (
+<<<<<<< HEAD
             <div key={member.name} className="group border border-[#E7D6C1] bg-[#FAF6F0] p-4 text-center space-y-3">
+=======
+            <div key={member.name} className="border border-[#E7D6C1] bg-[#FAF6F0] p-4 text-center space-y-3">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               <div className="aspect-square overflow-hidden bg-[#E7D6C1]/40 mb-3">
                 <img
                   src={member.img}
                   alt={member.name}
                   referrerPolicy="no-referrer"
+<<<<<<< HEAD
                   className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500 ease-out"
+=======
+                  className="w-full h-full object-cover object-center"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 />
               </div>
               <h4 className="font-serif text-lg font-semibold text-[#2B1D17]">{member.name}</h4>
@@ -168,7 +206,11 @@ export const AboutPage: React.FC = () => {
               The Flagship Salon
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#FAF6F0] font-normal leading-tight">
+<<<<<<< HEAD
               Galleria Mall, <span className="italic font-light text-[#C48A5A]">Main Gulberg</span>, Lahore
+=======
+              Galleria Mall, Main Gulberg, Lahore
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
             <p className="text-xs sm:text-sm text-[#E7D6C1]/85 font-light leading-relaxed">
               Step inside our private sanctuary of quiet luxury. Patrons may schedule bespoke fittings with master tailors, inspect full bolt fabrics, and relax in our private salon lounge with single-origin teas.
@@ -200,12 +242,20 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
 
+<<<<<<< HEAD
           <div className="lg:col-span-5 aspect-[4/3] overflow-hidden border border-[#6B4A3A] group">
+=======
+          <div className="lg:col-span-5 aspect-[4/3] overflow-hidden border border-[#6B4A3A]">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             <img
               src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85"
               alt="Galleria Mall Lahore Salon"
               referrerPolicy="no-referrer"
+<<<<<<< HEAD
               className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+=======
+              className="w-full h-full object-cover"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             />
           </div>
         </div>

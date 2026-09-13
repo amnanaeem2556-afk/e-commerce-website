@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { X, Star, Heart, Check, ShoppingBag, ArrowRight } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { formatPKR } from '../data/constants';
+<<<<<<< HEAD
 import { getOptimizedImageUrl } from '../utils/imageOptimizer';
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
 export const QuickViewModal: React.FC = () => {
   const { quickViewProduct, setQuickViewProduct, addToCart, toggleWishlist, isInWishlist, viewProduct } = useShop();
@@ -58,11 +61,16 @@ export const QuickViewModal: React.FC = () => {
         <div className="md:w-1/2 p-4 md:p-6 flex flex-col bg-[#E7D6C1]/15">
           <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF6F0] mb-3">
             <img
+<<<<<<< HEAD
               src={getOptimizedImageUrl(selectedImage || product.images[0], 700, 82)}
               alt={product.name}
               loading="eager"
               decoding="async"
               fetchPriority="high"
+=======
+              src={selectedImage || product.images[0]}
+              alt={product.name}
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover object-center"
             />
@@ -76,6 +84,7 @@ export const QuickViewModal: React.FC = () => {
                   selectedImage === img ? 'border-[#2B1D17] ring-1 ring-[#2B1D17]' : 'border-[#E7D6C1] opacity-70 hover:opacity-100'
                 }`}
               >
+<<<<<<< HEAD
                 <img
                   src={getOptimizedImageUrl(img, 140, 78)}
                   alt=""
@@ -84,6 +93,9 @@ export const QuickViewModal: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
+=======
+                <img src={img} alt="" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               </button>
             ))}
           </div>

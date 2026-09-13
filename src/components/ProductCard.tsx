@@ -3,14 +3,21 @@ import { Heart, Eye, ShoppingBag, Star } from 'lucide-react';
 import { Product } from '../types';
 import { useShop } from '../context/ShopContext';
 import { formatPKR } from '../data/constants';
+<<<<<<< HEAD
 import { getOptimizedImageUrl, markImageCached } from '../utils/imageOptimizer';
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
 interface ProductCardProps {
   product: Product;
   priority?: boolean;
 }
 
+<<<<<<< HEAD
 export const ProductCard: React.FC<ProductCardProps> = ({ product, priority = false }) => {
+=======
+export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   const { viewProduct, addToCart, toggleWishlist, isInWishlist, setQuickViewProduct } = useShop();
   const [isHovered, setIsHovered] = useState(false);
   const [selectedColor, setSelectedColor] = useState(product?.colors?.[0]?.name || '');
@@ -19,12 +26,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, priority = fa
   if (!product) return null;
 
   const inWishlist = isInWishlist(product.id);
+<<<<<<< HEAD
   const rawPrimary = product.images?.[0] || '';
   const rawSecondary = product.images?.[1] || product.images?.[0] || '';
   
   // Deliver optimized crisp 600px width images instead of 1200-2000px heavy images
   const primaryImg = getOptimizedImageUrl(rawPrimary, 600, 82);
   const secondaryImg = rawSecondary ? getOptimizedImageUrl(rawSecondary, 600, 82) : '';
+=======
+  const primaryImg = product.images?.[0] || '';
+  const secondaryImg = product.images?.[1] || product.images?.[0] || '';
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -85,10 +97,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, priority = fa
         <img
           src={primaryImg}
           alt={product.name}
+<<<<<<< HEAD
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
           fetchPriority={priority ? 'high' : 'auto'}
           onLoad={() => markImageCached(primaryImg)}
+=======
+          loading="lazy"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           referrerPolicy="no-referrer"
           className={`h-full w-full object-cover object-center transition-all duration-700 ease-out ${
             isHovered && secondaryImg ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
@@ -99,8 +115,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, priority = fa
             src={secondaryImg}
             alt={`${product.name} alternate view`}
             loading="lazy"
+<<<<<<< HEAD
             decoding="async"
             onLoad={() => markImageCached(secondaryImg)}
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             referrerPolicy="no-referrer"
             className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 ease-out ${
               isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'

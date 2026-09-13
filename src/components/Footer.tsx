@@ -227,11 +227,20 @@ export const Footer: React.FC = () => {
                   Contact Atelier Concierge
                 </button>
               </li>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               <li>
                 <button onClick={() => handleNav('admin')} className="hover:text-white transition-colors cursor-pointer text-[#C48A5A]">
                   Atelier Admin Portal
                 </button>
               </li>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </ul>
           </div>
 

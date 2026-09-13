@@ -34,18 +34,30 @@ export const CollectionHeroBanner: React.FC<CollectionHeroBannerProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
+<<<<<<< HEAD
         className="group relative w-full min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] xl:min-h-[490px] flex items-center"
       >
         {/* Full-bleed Panoramic Background Image (Razor Sharp 16:9, Uncropped Head & Subject with Luxury Zoom) */}
         <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#2B1D17]">
+=======
+        className="relative w-full min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] xl:min-h-[490px] flex items-center"
+      >
+        {/* Full-bleed Panoramic Background Image (Razor Sharp 16:9, Uncropped Head & Subject) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           <img
             src={hero.image}
             alt={hero.alt}
             loading="eager"
+<<<<<<< HEAD
             decoding="async"
             fetchPriority="high"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-[85%_top] sm:object-[80%_top] lg:object-[right_top] group-hover:scale-108 transition-transform duration-1000 ease-out"
+=======
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-[85%_top] sm:object-[80%_top] lg:object-[right_top] transition-transform duration-1000 ease-out"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           />
 
           {/* Targeted Left Gradient: subtly enhances text contrast on left while leaving right image 100% sharp and unblurred */}
@@ -65,11 +77,16 @@ export const CollectionHeroBanner: React.FC<CollectionHeroBannerProps> = ({
           >
             {/* Small Uppercase Collection Label */}
             <div className="mb-3.5 sm:mb-4">
+<<<<<<< HEAD
               <span className="inline-block text-[10.5px] sm:text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C48A5A]">
+=======
+              <span className="inline-block text-[10.5px] sm:text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6B4A3A]">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 {hero.label}
               </span>
             </div>
 
+<<<<<<< HEAD
             {/* Large Luxury Heading with Brand Color Theme */}
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-[44px] xl:text-5xl text-[#2B1D17] font-normal tracking-tight leading-[1.14]">
               {(() => {
@@ -85,6 +102,11 @@ export const CollectionHeroBanner: React.FC<CollectionHeroBannerProps> = ({
                 }
                 return hero.title;
               })()}
+=======
+            {/* Large Luxury Heading */}
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-[44px] xl:text-5xl text-[#2B1D17] font-normal tracking-tight leading-[1.14]">
+              {hero.title}
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h1>
 
             {/* Premium Editorial Description */}

@@ -6,6 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+<<<<<<< HEAD
 node_modules/
 *.zip
 dist/
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3

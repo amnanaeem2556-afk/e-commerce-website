@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { ChevronLeft, ChevronRight, ArrowRight, Star, Compass, Award, Feather } from 'lucide-react';
+=======
+import { ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, Truck, RotateCcw, Clock, Sparkles, Star, Compass, Award, Feather } from 'lucide-react';
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 import { useShop } from '../context/ShopContext';
 import { PRODUCTS, CATEGORIES_META } from '../data/products';
 import { INITIAL_REVIEWS } from '../data/reviews';
 import { ProductCard } from '../components/ProductCard';
+<<<<<<< HEAD
 import { getOptimizedImageUrl } from '../utils/imageOptimizer';
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
 import heroEditorialPortrait from '../assets/images/hero_editorial_portrait_1789122773345.jpg';
 import heroFullbodyTailoring from '../assets/images/hero_fullbody_tailoring_1789122795297.jpg';
 import heroLifestyleScene from '../assets/images/hero_lifestyle_scene_1789122837997.jpg';
 import heroHorologyCloseup from '../assets/images/hero_horology_closeup_1789122819384.jpg';
 
+<<<<<<< HEAD
 // Pre-cache all high-resolution hero banner images into memory immediately for instant smooth display
 const HERO_BANNER_SOURCES = [
   heroEditorialPortrait,
@@ -26,13 +34,18 @@ if (typeof window !== 'undefined') {
   });
 }
 
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 export const HomePage: React.FC = () => {
   const { setCurrentPage, setSelectedCategoryFilter } = useShop();
 
   // Hero Slider State & Progress
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideProgress, setSlideProgress] = useState(0);
+<<<<<<< HEAD
   const [imagesLoaded, setImagesLoaded] = useState<Record<string, boolean>>({});
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   const [activeMaterial, setActiveMaterial] = useState<'cashmere' | 'silk' | 'leather' | 'horology'>('cashmere');
 
   const heroSlides = [
@@ -191,6 +204,7 @@ export const HomePage: React.FC = () => {
                 isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
+<<<<<<< HEAD
               {/* Background Image with warm luxury tonal grade & cinematic Ken Burns zoom */}
               <div className="absolute inset-0 overflow-hidden bg-[#2B1D17]">
                 <img
@@ -204,6 +218,17 @@ export const HomePage: React.FC = () => {
                   className={`w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out ${
                     isActive ? 'animate-hero-zoom opacity-100' : 'scale-100 opacity-90'
                   } ${imagesLoaded[slide.id] ? 'opacity-100' : 'opacity-95'}`}
+=======
+              {/* Background Image with warm luxury tonal grade & gentle zoom */}
+              <div className="absolute inset-0 overflow-hidden">
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  referrerPolicy="no-referrer"
+                  className={`w-full h-full object-cover object-center transition-transform duration-10000 ease-out ${
+                    isActive ? 'scale-105' : 'scale-100'
+                  }`}
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 />
                 {/* Espresso & Mocha Duotone luxury gradients */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2B1D17]/90 via-[#2B1D17]/60 to-[#2B1D17]/20" />
@@ -225,10 +250,17 @@ export const HomePage: React.FC = () => {
                     </span>
                   </div>
 
+<<<<<<< HEAD
                   {/* Main Editorial Headline with brand accent color */}
                   <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#FAF6F0] font-normal tracking-wide leading-[1.12]">
                     {slide.title.replace(slide.italicWord, '')}
                     <span className="italic font-light text-[#C48A5A] font-serif">
+=======
+                  {/* Main Editorial Headline */}
+                  <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#FAF6F0] font-normal tracking-wide leading-[1.12]">
+                    {slide.title.replace(slide.italicWord, '')}
+                    <span className="italic font-light text-[#E7D6C1] font-serif">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                       {slide.italicWord}
                     </span>
                   </h1>
@@ -267,7 +299,15 @@ export const HomePage: React.FC = () => {
         {/* Editorial Bottom Navigation & Progress Indicator */}
         <div className="absolute bottom-6 left-0 right-0 z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border-t border-[#FAF6F0]/20 pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<<<<<<< HEAD
             {/* Slide Pill Tabs without numbering */}
+=======
+<<<<<<< HEAD
+            {/* Slide Pill Tabs without numbering */}
+=======
+            {/* Slide Pill Tabs */}
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             <div className="flex items-center gap-2 sm:gap-6 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
               {heroSlides.map((slide, idx) => {
                 const isActive = currentSlide === idx;
@@ -282,8 +322,20 @@ export const HomePage: React.FC = () => {
                       isActive ? 'opacity-100' : 'opacity-40 hover:opacity-80'
                     }`}
                   >
+<<<<<<< HEAD
                     <span className={`w-2 h-2 rounded-full transition-colors ${isActive ? 'bg-[#C48A5A]' : 'bg-[#FAF6F0]/40'}`} />
                     <span className="text-[11px] uppercase tracking-wider text-[#FAF6F0] font-medium">
+=======
+<<<<<<< HEAD
+                    <span className={`w-2 h-2 rounded-full transition-colors ${isActive ? 'bg-[#C48A5A]' : 'bg-[#FAF6F0]/40'}`} />
+                    <span className="text-[11px] uppercase tracking-wider text-[#FAF6F0] font-medium">
+=======
+                    <span className={`text-[11px] font-serif font-bold ${isActive ? 'text-[#C48A5A]' : 'text-[#FAF6F0]'}`}>
+                      0{idx + 1}
+                    </span>
+                    <span className="text-[11px] uppercase tracking-wider text-[#FAF6F0] font-medium hidden sm:inline">
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                       {slide.tabLabel}
                     </span>
                     {isActive && (
@@ -326,12 +378,72 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* 2. THE CURATED MAISONS (EDITORIAL ASYMMETRIC GRID) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-[#E7D6C1] pb-5">
           <div>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
               The Curated <span className="italic font-light text-[#C48A5A]">Maisons</span>
+=======
+      {/* 2. ATELIER TRUST PILLARS BAR */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#FAF6F0] border border-[#E7D6C1] shadow-xs p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 border border-[#C48A5A]/60 flex items-center justify-center text-[#2B1D17] shrink-0 bg-[#E7D6C1]/30">
+              <Truck className="w-5 h-5 text-[#6B4A3A]" />
+            </div>
+            <div>
+              <h4 className="font-serif text-sm font-semibold text-[#2B1D17]">White-Glove Delivery</h4>
+              <p className="text-[11px] text-[#6B4A3A] leading-relaxed mt-0.5">Complimentary domestic courier over PKR 15,000</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 border border-[#C48A5A]/60 flex items-center justify-center text-[#2B1D17] shrink-0 bg-[#E7D6C1]/30">
+              <ShieldCheck className="w-5 h-5 text-[#6B4A3A]" />
+            </div>
+            <div>
+              <h4 className="font-serif text-sm font-semibold text-[#2B1D17]">Atelier Guarantee</h4>
+              <p className="text-[11px] text-[#6B4A3A] leading-relaxed mt-0.5">Inspected & sealed with archival wax stamp</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 border border-[#C48A5A]/60 flex items-center justify-center text-[#2B1D17] shrink-0 bg-[#E7D6C1]/30">
+              <RotateCcw className="w-5 h-5 text-[#6B4A3A]" />
+            </div>
+            <div>
+              <h4 className="font-serif text-sm font-semibold text-[#2B1D17]">30-Day Fitting Trial</h4>
+              <p className="text-[11px] text-[#6B4A3A] leading-relaxed mt-0.5">Complimentary in-home doorstep collection</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 border border-[#C48A5A]/60 flex items-center justify-center text-[#2B1D17] shrink-0 bg-[#E7D6C1]/30">
+              <Clock className="w-5 h-5 text-[#6B4A3A]" />
+            </div>
+            <div>
+              <h4 className="font-serif text-sm font-semibold text-[#2B1D17]">Private Stylist Salon</h4>
+              <p className="text-[11px] text-[#6B4A3A] leading-relaxed mt-0.5">Bespoke sizing concierge available 7 days</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. THE CURATED MAISONS (EDITORIAL ASYMMETRIC GRID) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-[#E7D6C1] pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 mb-1">
+              <span className="w-6 h-[1px] bg-[#C48A5A]" />
+              <span className="text-[10px] tracking-[0.25em] text-[#C48A5A] uppercase font-semibold">
+                Architectural Catalog
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
+              The Curated <span className="italic font-light">Maisons</span>
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
           </div>
           <button
@@ -354,12 +466,19 @@ export const HomePage: React.FC = () => {
             className="md:col-span-6 lg:col-span-5 relative group overflow-hidden bg-[#2B1D17] border border-[#E7D6C1]/80 hover:border-[#C48A5A] transition-all duration-500 cursor-pointer min-h-[460px] flex flex-col justify-end p-8"
           >
             <img
+<<<<<<< HEAD
               src={getOptimizedImageUrl('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85', 800, 82)}
               alt="The Women’s Atelier"
               loading="eager"
               decoding="async"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out"
+=======
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85"
+              alt="The Women’s Atelier"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17] via-[#2B1D17]/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
 
@@ -386,28 +505,44 @@ export const HomePage: React.FC = () => {
                 title: 'The Sartorial Men',
                 tag: 'Virgin Wool Melton',
                 count: '18+ Items',
+<<<<<<< HEAD
                 image: getOptimizedImageUrl('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=85', 600, 82),
+=======
+                image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=85',
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               },
               {
                 id: 'watches',
                 title: 'High Horology',
                 tag: 'Swiss Mechanical Calibres',
                 count: '12+ Items',
+<<<<<<< HEAD
                 image: getOptimizedImageUrl('https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85', 600, 82),
+=======
+                image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85',
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               },
               {
                 id: 'shoes',
                 title: 'Artisanal Footwear',
                 tag: 'Blake-Stitched Calfskin',
                 count: '16+ Items',
+<<<<<<< HEAD
                 image: getOptimizedImageUrl('https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=900&q=85', 600, 82),
+=======
+                image: 'https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=900&q=85',
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               },
               {
                 id: 'accessories',
                 title: 'Leather & Silk Objets',
                 tag: 'Tuscan Full-Grain Vachetta',
                 count: '20+ Items',
+<<<<<<< HEAD
                 image: getOptimizedImageUrl('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=85', 600, 82),
+=======
+                image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=85',
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               },
             ].map((cat) => (
               <div
@@ -418,10 +553,15 @@ export const HomePage: React.FC = () => {
                 <img
                   src={cat.image}
                   alt={cat.title}
+<<<<<<< HEAD
                   loading="eager"
                   decoding="async"
                   referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out"
+=======
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2B1D17] via-[#2B1D17]/45 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
@@ -438,12 +578,27 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* 3. NEW ARRIVALS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-[#E7D6C1] pb-5">
           <div>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
               The <span className="italic font-light text-[#C48A5A]">New</span> Arrivals
+=======
+      {/* 4. NEW ARRIVALS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-[#E7D6C1] pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 mb-1">
+              <span className="w-6 h-[1px] bg-[#C48A5A]" />
+              <span className="text-[10px] tracking-[0.25em] text-[#C48A5A] uppercase font-semibold">
+                Seasonal Autumn Solstice 2026
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
+              The <span className="italic font-light">New</span> Arrivals
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
           </div>
           <button
@@ -456,8 +611,13 @@ export const HomePage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+<<<<<<< HEAD
           {newArrivals.map((product, idx) => (
             <ProductCard key={product.id} product={product} priority={idx < 4} />
+=======
+          {newArrivals.map((product) => (
+            <ProductCard key={product.id} product={product} />
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           ))}
         </div>
       </section>
@@ -468,12 +628,32 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
             {/* Left Narrative Spread */}
             <div className="lg:col-span-7 p-8 sm:p-12 lg:p-16 flex flex-col justify-center space-y-6 z-10">
+<<<<<<< HEAD
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-wide text-[#FAF6F0] leading-[1.15]">
                 THE SEASON’S <span className="italic font-light text-[#C48A5A]">EDIT</span>
               </h2>
 
               <p className="font-serif italic text-base sm:text-lg text-[#E7D6C1] border-l-2 border-[#C48A5A] pl-4">
                 &ldquo;True luxury does not clamor for attention, it commands it through proportion, weight, and touch.&rdquo;
+=======
+              <div className="inline-flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#C48A5A]" />
+                <span className="text-[11px] uppercase tracking-[0.25em] text-[#C48A5A] font-semibold">
+                  Atelier Editorial Campaign
+                </span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-wide text-[#FAF6F0] leading-[1.15]">
+                THE SEASON’S <span className="italic font-light text-[#E7D6C1]">EDIT</span>
+              </h2>
+
+              <p className="font-serif italic text-base sm:text-lg text-[#E7D6C1] border-l-2 border-[#C48A5A] pl-4">
+<<<<<<< HEAD
+                &ldquo;True luxury does not clamor for attention, it commands it through proportion, weight, and touch.&rdquo;
+=======
+                &ldquo;True luxury does not clamor for attention — it commands it through proportion, weight, and touch.&rdquo;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               </p>
 
               <p className="text-xs sm:text-sm text-[#E7D6C1]/85 leading-relaxed font-light max-w-lg">
@@ -512,15 +692,24 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
+<<<<<<< HEAD
             {/* Right Photography Spread with Floating Badge and smooth luxury zoom */}
             <div className="lg:col-span-5 relative min-h-[360px] lg:min-h-full overflow-hidden group">
+=======
+            {/* Right Photography Spread with Floating Badge */}
+            <div className="lg:col-span-5 relative min-h-[360px] lg:min-h-full">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               <img
                 src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85"
                 alt="The Season's Edit"
                 referrerPolicy="no-referrer"
+<<<<<<< HEAD
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out"
+=======
+                className="w-full h-full object-cover object-center"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#2B1D17] via-transparent to-transparent lg:block hidden" />
               
@@ -542,8 +731,16 @@ export const HomePage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#FAF6F0] border border-[#E7D6C1] p-8 sm:p-12 space-y-8 shadow-xs">
           <div className="text-center max-w-xl mx-auto space-y-2">
+<<<<<<< HEAD
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
               The Material <span className="italic font-light text-[#C48A5A]">Lineage</span>
+=======
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C48A5A] font-semibold">
+              Lineage & Traceability
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
+              The Material <span className="italic font-light">Lineage</span>
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
             <p className="text-xs sm:text-sm text-[#6B4A3A] font-light">
               We forge our garments from unblended natural fibers harvested with mindful respect for land, artisan, and patron.
@@ -626,12 +823,20 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
+<<<<<<< HEAD
             <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] overflow-hidden border border-[#E7D6C1] group">
+=======
+            <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] overflow-hidden border border-[#E7D6C1]">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               <img
                 src={currentMaterial.image}
                 alt={currentMaterial.title}
                 referrerPolicy="no-referrer"
+<<<<<<< HEAD
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+=======
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               />
               <div className="absolute top-3 right-3 bg-[#2B1D17]/80 backdrop-blur-xs text-[#FAF6F0] text-[9.5px] uppercase tracking-[0.2em] px-2.5 py-1 border border-[#C48A5A]/50">
                 {currentMaterial.tag}
@@ -641,12 +846,27 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* 6. BEST SELLERS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-[#E7D6C1] pb-5">
           <div>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
               The <span className="italic font-light text-[#C48A5A]">Iconic</span> Best Sellers
+=======
+      {/* 7. BEST SELLERS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-[#E7D6C1] pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 mb-1">
+              <span className="w-6 h-[1px] bg-[#C48A5A]" />
+              <span className="text-[10px] tracking-[0.25em] text-[#C48A5A] uppercase font-semibold">
+                Client Favorites
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
+              The <span className="italic font-light">Iconic</span> Best Sellers
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
           </div>
           <button
@@ -659,17 +879,33 @@ export const HomePage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+<<<<<<< HEAD
           {bestSellers.map((product, idx) => (
             <ProductCard key={product.id} product={product} priority={idx < 4} />
+=======
+          {bestSellers.map((product) => (
+            <ProductCard key={product.id} product={product} />
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           ))}
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* 7. DISCERNING PATRONS & VERIFIED REVIEWS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
           <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
             Echoes from <span className="italic font-light text-[#C48A5A]">Discerning</span> Patrons
+=======
+      {/* 8. DISCERNING PATRONS & VERIFIED REVIEWS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
+          <span className="text-[10px] tracking-[0.25em] text-[#C48A5A] uppercase font-semibold">
+            Atelier Accolades
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#2B1D17] font-normal">
+            Echoes from <span className="italic font-light">Discerning</span> Patrons
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           </h2>
           <p className="text-xs text-[#6B4A3A]">
             Verified experiences from patrons across Lahore, Karachi, Islamabad, and international salons.
@@ -721,11 +957,22 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* 8. THE ATELIER DIARY / LOOKBOOK GALLERY */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 space-y-1">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#2B1D17] font-normal">
             As Worn By The <span className="italic font-light text-[#C48A5A]">Circle</span>
+=======
+      {/* 9. THE ATELIER DIARY / LOOKBOOK GALLERY */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 space-y-1">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#C48A5A] font-semibold">
+            @LUMORA.LUXURY
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#2B1D17] font-normal">
+            As Worn By The <span className="italic font-light">Circle</span>
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
           </h2>
           <p className="text-xs text-[#6B4A3A]">
             Tag your styling moments to be featured in the private atelier lookbook.
@@ -748,7 +995,11 @@ export const HomePage: React.FC = () => {
                 src={item.img}
                 alt={item.tag}
                 referrerPolicy="no-referrer"
+<<<<<<< HEAD
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+=======
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               />
               <div className="absolute inset-0 bg-[#2B1D17]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3">
                 <span className="text-[11px] text-[#FAF6F0] font-medium tracking-widest uppercase bg-[#2B1D17]/90 px-3.5 py-2 border border-[#C48A5A]">

@@ -2,7 +2,10 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Product, CartItem, WishlistItem, Order, PageType } from '../types';
 import { PRODUCTS } from '../data/products';
 import { MOCK_PAST_ORDERS, PROMO_CODES } from '../data/constants';
+<<<<<<< HEAD
 import { getOptimizedImageUrl, preloadImages } from '../utils/imageOptimizer';
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
 interface ToastMessage {
   id: string;
@@ -61,11 +64,23 @@ interface ShopContextType {
   latestOrder: Order | null;
   currentOrder: Order | null;
   setLatestOrder: (order: Order | null) => void;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   createOrder: (newOrder: Order) => Promise<Order>;
   placeOrder: (newOrder: Order) => Promise<Order>;
   findOrder: (orderNumber: string, email?: string) => Order | undefined;
   updateOrderStatus: (orderId: string, status: string, courierName?: string, trackingNumber?: string, paymentStatus?: string) => Promise<{ success: boolean; order?: Order; error?: string }>;
   refreshOrders: () => Promise<void>;
+<<<<<<< HEAD
+=======
+=======
+  createOrder: (newOrder: Order) => void;
+  placeOrder: (newOrder: Order) => void;
+  findOrder: (orderNumber: string, email?: string) => Order | undefined;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
   // Toast
   toasts: ToastMessage[];
@@ -197,6 +212,10 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [latestOrder, setLatestOrder] = useState<Order | null>(orders[0] || null);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   const refreshOrders = async () => {
     try {
       const res = await fetch('/api/admin/orders');
@@ -231,6 +250,12 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       window.removeEventListener('lumora:order_updated', handleExternalOrderUpdate as EventListener);
     };
   }, []);
+<<<<<<< HEAD
+=======
+
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   useEffect(() => {
     try {
       localStorage.setItem('lumora_cart', JSON.stringify(cart));
@@ -255,6 +280,7 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [orders]);
 
+<<<<<<< HEAD
   // Proactive background pre-warming: preloads primary product images into browser cache on idle
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -287,6 +313,8 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return () => clearTimeout(timer);
   }, []);
 
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   const addToast = (title: string, message: string, type: 'success' | 'info' | 'luxury' = 'luxury') => {
     const id = Date.now().toString() + Math.random().toString(36).substring(2, 5);
     setToasts(prev => [...prev, { id, title, message, type }]);
@@ -402,6 +430,10 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
     addToast('Promo Removed', 'Privilege voucher code was removed.', 'info');
   };
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   const createOrder = async (newOrder: Order): Promise<Order> => {
     setOrders(prev => [newOrder, ...prev.filter(o => o.id !== newOrder.id)]);
     setLatestOrder(newOrder);
@@ -480,6 +512,19 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error('Error in updateOrderStatus:', err);
       return { success: false, error: err.message || 'Network error updating order status.' };
     }
+<<<<<<< HEAD
+=======
+=======
+  const createOrder = (newOrder: Order) => {
+    setOrders(prev => [newOrder, ...prev]);
+    setLatestOrder(newOrder);
+    clearCart();
+  };
+
+  const placeOrder = (newOrder: Order) => {
+    createOrder(newOrder);
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   };
 
   const findOrder = (orderNumber: string, email?: string): Order | undefined => {
@@ -544,8 +589,16 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
         createOrder,
         placeOrder,
         findOrder,
+<<<<<<< HEAD
         updateOrderStatus,
         refreshOrders,
+=======
+<<<<<<< HEAD
+        updateOrderStatus,
+        refreshOrders,
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
         toasts,
         addToast,
         removeToast

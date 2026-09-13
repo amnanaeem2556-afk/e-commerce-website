@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Search, Heart, ShoppingBag, User, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { PageType } from '../types';
+<<<<<<< HEAD
 import { COLLECTION_HEROES } from '../data/collectionHeroes';
 import { preloadImage } from '../utils/imageOptimizer';
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
 export const Navbar: React.FC = () => {
   const {
@@ -94,6 +97,7 @@ export const Navbar: React.FC = () => {
       <header
         className={`sticky top-0 z-30 transition-all duration-300 ${
           isScrolled
+<<<<<<< HEAD
             ? 'bg-[#FAF6F0]/95 backdrop-blur-md shadow-xs border-b border-[#E7D6C1]/60 py-2.5 sm:py-3'
             : 'bg-[#FAF6F0] border-b border-[#E7D6C1]/30 py-3 sm:py-4'
         }`}
@@ -121,13 +125,47 @@ export const Navbar: React.FC = () => {
                   LUMORA
                 </span>
                 <span className="text-[7px] sm:text-[8px] tracking-[0.28em] sm:tracking-[0.35em] text-[#6B4A3A] uppercase font-medium -mt-0.5 sm:-mt-1">
+=======
+            ? 'bg-[#FAF6F0]/95 backdrop-blur-md shadow-sm border-b border-[#E7D6C1]/60 py-3'
+            : 'bg-[#FAF6F0] border-b border-[#E7D6C1]/30 py-4'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            {/* Mobile Menu Button */}
+            <div className="flex items-center lg:hidden">
+              <button
+                id="mobile-menu-trigger"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 -ml-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors focus:outline-none"
+                aria-label="Toggle Navigation Menu"
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+
+            {/* Brand Logo */}
+            <div className="flex-1 lg:flex-none text-center lg:text-left">
+              <button
+                onClick={() => handleNavClick('home')}
+                className="group inline-flex flex-col items-center lg:items-start focus:outline-none cursor-pointer"
+              >
+                <span className="font-serif text-2xl sm:text-3xl tracking-[0.25em] text-[#C48A5A] font-semibold transition-transform duration-300 group-hover:scale-[1.02]">
+                  LUMORA
+                </span>
+                <span className="text-[8px] tracking-[0.35em] text-[#6B4A3A] uppercase font-medium -mt-0.5">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                   HAUTE COUTURE
                 </span>
               </button>
             </div>
 
             {/* Desktop Navigation Links */}
+<<<<<<< HEAD
             <nav className="hidden lg:flex items-center space-x-7 xl:space-x-8">
+=======
+            <nav className="hidden lg:flex items-center space-x-8">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               {navItems.map((item) => (
                 <div
                   key={item.label}
@@ -177,12 +215,20 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Right Action Icons */}
+<<<<<<< HEAD
             <div className="flex items-center gap-0.5 sm:gap-2.5 md:gap-4 shrink-0">
+=======
+            <div className="flex items-center space-x-3 sm:space-x-5">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               {/* Search Trigger */}
               <button
                 id="search-trigger"
                 onClick={() => setIsSearchOpen(true)}
+<<<<<<< HEAD
                 className="p-1.5 sm:p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors focus:outline-none cursor-pointer rounded-full hover:bg-[#E7D6C1]/20"
+=======
+                className="p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors focus:outline-none cursor-pointer"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 title="Search Lumora"
                 aria-label="Search"
               >
@@ -193,6 +239,7 @@ export const Navbar: React.FC = () => {
               <button
                 id="wishlist-trigger"
                 onClick={() => setCurrentPage('wishlist')}
+<<<<<<< HEAD
                 className="p-1.5 sm:p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors focus:outline-none cursor-pointer rounded-full hover:bg-[#E7D6C1]/20"
                 title="Saved Pieces"
                 aria-label="Wishlist"
@@ -205,6 +252,18 @@ export const Navbar: React.FC = () => {
                     </span>
                   )}
                 </div>
+=======
+                className="p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors relative focus:outline-none cursor-pointer"
+                title="Saved Pieces"
+                aria-label="Wishlist"
+              >
+                <Heart className="w-5 h-5 stroke-[1.5]" />
+                {wishlist.length > 0 && (
+                  <span className="absolute top-1 right-1 w-4 h-4 bg-[#C48A5A] text-[#FAF6F0] text-[10px] font-bold rounded-full flex items-center justify-center shadow-xs">
+                    {wishlist.length}
+                  </span>
+                )}
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               </button>
 
               {/* Account Trigger */}
@@ -212,7 +271,11 @@ export const Navbar: React.FC = () => {
                 <button
                   id="account-trigger"
                   onClick={() => setIsAccountModalOpen(!isAccountModalOpen)}
+<<<<<<< HEAD
                   className="p-1.5 sm:p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors focus:outline-none cursor-pointer rounded-full hover:bg-[#E7D6C1]/20"
+=======
+                  className="p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors focus:outline-none cursor-pointer"
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                   title="Account & Orders"
                   aria-label="Account"
                 >
@@ -220,7 +283,11 @@ export const Navbar: React.FC = () => {
                 </button>
 
                 {isAccountModalOpen && (
+<<<<<<< HEAD
                   <div className="absolute right-0 top-full mt-2 w-72 max-w-[calc(100vw-1.5rem)] bg-[#FAF6F0] border border-[#E7D6C1] shadow-xl p-4 z-50 text-left">
+=======
+                  <div className="absolute right-0 top-full mt-2 w-72 bg-[#FAF6F0] border border-[#E7D6C1] shadow-xl p-4 z-50 text-left">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                     <div className="pb-3 border-b border-[#E7D6C1]/60">
                       <p className="text-[10px] tracking-widest text-[#6B4A3A] uppercase">Lumora Concierge</p>
                       <h4 className="font-serif text-base font-semibold text-[#2B1D17]">Privileged Member</h4>
@@ -257,6 +324,10 @@ export const Navbar: React.FC = () => {
                         <span>Customer Support & FAQ</span>
                         <ArrowRight className="w-3 h-3 text-[#C48A5A]" />
                       </button>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                       <button
                         onClick={() => {
                           setIsAccountModalOpen(false);
@@ -267,6 +338,11 @@ export const Navbar: React.FC = () => {
                         <span>Atelier Admin Dashboard</span>
                         <ArrowRight className="w-3 h-3 text-[#C48A5A]" />
                       </button>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                     </div>
                     <div className="pt-2 border-t border-[#E7D6C1]/60">
                       <p className="text-[10px] text-[#6B4A3A]">
@@ -281,6 +357,7 @@ export const Navbar: React.FC = () => {
               <button
                 id="cart-trigger"
                 onClick={() => setCurrentPage('cart')}
+<<<<<<< HEAD
                 className="p-1.5 sm:p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors relative focus:outline-none flex items-center cursor-pointer rounded-full hover:bg-[#E7D6C1]/20"
                 title="Atelier Bag"
                 aria-label="Shopping Bag"
@@ -289,6 +366,16 @@ export const Navbar: React.FC = () => {
                   <ShoppingBag className="w-5 h-5 stroke-[1.5]" />
                   {cartCount > 0 && (
                     <span className="absolute -top-1.5 -right-2 min-w-4 h-4 px-1 bg-[#2B1D17] text-[#FAF6F0] text-[9.5px] font-bold rounded-full flex items-center justify-center border border-[#FAF6F0] shadow-xs">
+=======
+                className="p-2 text-[#2B1D17] hover:text-[#C48A5A] transition-colors relative focus:outline-none flex items-center gap-1.5 cursor-pointer"
+                title="Atelier Bag"
+                aria-label="Shopping Bag"
+              >
+                <div className="relative">
+                  <ShoppingBag className="w-5 h-5 stroke-[1.5]" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1.5 -right-2 w-4 h-4 bg-[#2B1D17] text-[#FAF6F0] text-[10px] font-bold rounded-full flex items-center justify-center border border-[#FAF6F0]">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                       {cartCount}
                     </span>
                   )}
@@ -308,7 +395,11 @@ export const Navbar: React.FC = () => {
           />
           <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-[#FAF6F0] shadow-2xl flex flex-col justify-between z-50 p-6 overflow-y-auto">
             <div>
+<<<<<<< HEAD
               <div className="flex items-center justify-between pb-4 border-b border-[#E7D6C1]">
+=======
+              <div className="flex items-center justify-between pb-6 border-b border-[#E7D6C1]">
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 <div>
                   <span className="font-serif text-2xl tracking-[0.2em] text-[#C48A5A] font-semibold">
                     LUMORA
@@ -324,6 +415,7 @@ export const Navbar: React.FC = () => {
                 </button>
               </div>
 
+<<<<<<< HEAD
               {/* Mobile Account Quick Info */}
               <div className="mt-4 p-3 bg-[#E7D6C1]/25 border border-[#E7D6C1]/60 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
@@ -346,6 +438,8 @@ export const Navbar: React.FC = () => {
                 </button>
               </div>
 
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               {/* Mobile Navigation List */}
               <div className="py-6 space-y-4">
                 <div className="text-[10px] uppercase tracking-widest text-[#6B4A3A] font-semibold">Navigation</div>
@@ -365,31 +459,71 @@ export const Navbar: React.FC = () => {
                   onClick={() => handleNavClick('women', 'women')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Women Collection
+=======
+<<<<<<< HEAD
+                  Women Collection
+=======
+                  &mdash; Women Collection
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 </button>
                 <button
                   onClick={() => handleNavClick('men', 'men')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Men Collection
+=======
+<<<<<<< HEAD
+                  Men Collection
+=======
+                  &mdash; Men Collection
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 </button>
                 <button
                   onClick={() => handleNavClick('watches', 'watches')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Watches & Horology
+=======
+<<<<<<< HEAD
+                  Watches & Horology
+=======
+                  &mdash; Watches & Horology
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 </button>
                 <button
                   onClick={() => handleNavClick('shoes', 'shoes')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Shoes & Loafers
+=======
+<<<<<<< HEAD
+                  Shoes & Loafers
+=======
+                  &mdash; Shoes & Loafers
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 </button>
                 <button
                   onClick={() => handleNavClick('accessories', 'accessories')}
                   className="w-full text-left py-2 text-sm text-[#6B4A3A] hover:text-[#2B1D17] pl-3"
                 >
+<<<<<<< HEAD
                   Bags & Accessories
+=======
+<<<<<<< HEAD
+                  Bags & Accessories
+=======
+                  &mdash; Bags & Accessories
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 </button>
                 <button
                   onClick={() => handleNavClick('new_arrivals')}

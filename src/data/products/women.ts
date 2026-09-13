@@ -707,7 +707,15 @@ export const WOMEN_PRODUCTS: Product[] = [
         city: 'Rawalpindi',
         rating: 5,
         title: 'Zero itch, utter cloud softness',
+<<<<<<< HEAD
         comment: 'I have very sensitive skin and cannot tolerate ordinary wool. This cashmere is sheer indulgence, soft as a whisper.',
+=======
+<<<<<<< HEAD
+        comment: 'I have very sensitive skin and cannot tolerate ordinary wool. This cashmere is sheer indulgence, soft as a whisper.',
+=======
+        comment: 'I have very sensitive skin and cannot tolerate ordinary wool. This cashmere is sheer indulgence—soft as a whisper.',
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
         date: 'February 19, 2026',
         verified: true,
         helpfulCount: 23,

@@ -103,7 +103,11 @@ export const ReviewsPage: React.FC = () => {
           Client Echoes
         </span>
         <h1 className="font-serif text-3xl sm:text-5xl text-[#2B1D17] font-normal">
+<<<<<<< HEAD
           Patron Appraisals & <span className="italic font-light text-[#C48A5A]">Reviews</span>
+=======
+          Patron Appraisals & Reviews
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
         </h1>
         <p className="text-xs sm:text-sm text-[#6B4A3A] font-light">
           Real reflections on drape, texture, unboxing, and durability from patrons across Pakistan.

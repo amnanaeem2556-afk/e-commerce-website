@@ -22,7 +22,10 @@ import { INITIAL_REVIEWS } from '../data/reviews';
 import { PRODUCTS } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
 import { formatPKR } from '../data/constants';
+<<<<<<< HEAD
 import { getOptimizedImageUrl } from '../utils/imageOptimizer';
+=======
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
 
 export const ProductDetailPage: React.FC = () => {
   const {
@@ -205,6 +208,7 @@ export const ProductDetailPage: React.FC = () => {
                     : 'border-[#E7D6C1] opacity-70 hover:opacity-100'
                 }`}
               >
+<<<<<<< HEAD
                 <img
                   src={getOptimizedImageUrl(img, 160, 80)}
                   alt=""
@@ -213,6 +217,9 @@ export const ProductDetailPage: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center"
                 />
+=======
+                <img src={img} alt="" referrerPolicy="no-referrer" className="w-full h-full object-cover object-center" />
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
               </button>
             ))}
           </div>
@@ -227,11 +234,16 @@ export const ProductDetailPage: React.FC = () => {
               onClick={() => setIsLightboxOpen(true)}
             >
               <img
+<<<<<<< HEAD
                 src={getOptimizedImageUrl(product.images[activeImageIndex], 1000, 85)}
                 alt={product.name}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
+=======
+                src={product.images[activeImageIndex]}
+                alt={product.name}
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
                 referrerPolicy="no-referrer"
                 className={`w-full h-full object-cover object-center transition-transform duration-300 ${
                   isZooming ? 'scale-150' : 'scale-100'
@@ -816,7 +828,11 @@ export const ProductDetailPage: React.FC = () => {
               Curated Accompaniments
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl text-[#2B1D17] font-normal mt-1">
+<<<<<<< HEAD
               You May Also <span className="italic font-light text-[#C48A5A]">Admire</span>
+=======
+              You May Also Admire
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
             </h2>
           </div>
           <button

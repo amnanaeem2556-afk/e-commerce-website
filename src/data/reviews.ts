@@ -44,7 +44,15 @@ export const INITIAL_REVIEWS: Review[] = [
     city: 'Karachi (DHA)',
     rating: 5,
     title: 'Best penny loafers I have owned',
+<<<<<<< HEAD
     comment: 'The Blake-stitch flexibility is immediately noticeable, with zero break-in blisters. The burnished espresso patina looks even better in person than the editorial studio photography.',
+=======
+<<<<<<< HEAD
+    comment: 'The Blake-stitch flexibility is immediately noticeable, with zero break-in blisters. The burnished espresso patina looks even better in person than the editorial studio photography.',
+=======
+    comment: 'The Blake-stitch flexibility is immediately noticeable—zero break-in blisters. The burnished espresso patina looks even better in person than the editorial studio photography.',
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
     date: 'February 29, 2026',
     verified: true,
     helpfulCount: 15,

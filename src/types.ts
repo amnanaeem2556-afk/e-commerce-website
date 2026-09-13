@@ -118,17 +118,38 @@ export interface Order {
   id: string;
   orderNumber?: string;
   trackingNumber?: string;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   courierName?: string;
   paymentStatus?: string;
   city?: string;
   postalCode?: string;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   customerName: string;
   email: string;
   phone: string;
   shippingAddress: string;
+<<<<<<< HEAD
   orderDate?: string;
   estimatedDelivery: string;
   status: 'placed' | 'confirmed' | 'processing' | 'packed' | 'shipped' | 'in_transit' | 'out_for_delivery' | 'delivered';
+=======
+<<<<<<< HEAD
+  orderDate?: string;
+  estimatedDelivery: string;
+  status: 'placed' | 'confirmed' | 'processing' | 'packed' | 'shipped' | 'in_transit' | 'out_for_delivery' | 'delivered';
+=======
+  orderDate: string;
+  estimatedDelivery: string;
+  status: 'placed' | 'confirmed' | 'processing' | 'shipped' | 'out_for_delivery' | 'delivered';
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   paymentMethod: string;
   subtotal: number;
   discount: number;
@@ -141,19 +162,39 @@ export interface Order {
   shippingFee?: number;
   discountAmount?: number;
   promoCode?: string;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   emailSent?: boolean;
   emailError?: string;
   emailProvider?: string;
   emailMessageId?: string;
   createdAt?: string;
   updatedAt?: string;
+<<<<<<< HEAD
+=======
+=======
+  createdAt?: string;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   statusTimestamps?: {
     placed: string;
     confirmed?: string;
     processing?: string;
+<<<<<<< HEAD
     packed?: string;
     shipped?: string;
     in_transit?: string;
+=======
+<<<<<<< HEAD
+    packed?: string;
+    shipped?: string;
+    in_transit?: string;
+=======
+    shipped?: string;
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
     out_for_delivery?: string;
     delivered?: string;
   };
@@ -175,7 +216,14 @@ export type PageType =
   | 'checkout'
   | 'order_success'
   | 'order_tracking'
+<<<<<<< HEAD
   | 'admin'
+=======
+<<<<<<< HEAD
+  | 'admin'
+=======
+>>>>>>> dc76fe99c39430892f270c31a641850b11e26596
+>>>>>>> 479537bc8f1a769ad4494180d4ea4d73351b05a3
   | 'reviews'
   | 'help_support'
   | 'about';
